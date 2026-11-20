@@ -45,7 +45,18 @@ jobs:
           fi
           yes | "$SDKMANAGER" --sdk_root="$ANDROID_HOME" --licenses || true
           "$SDKMANAGER" --sdk_root="$ANDROID_HOME" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+      - name: Align Java and Kotlin JVM targets
+        working-directory: unpacked/CreativeArchiveAndroid
+        run: |
+          cat >> app/build.gradle.kts <<'EOF'
 
+          android {
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
+              }
+          }
+          EOF
       - name: Build APK
         working-directory: unpacked/CreativeArchiveAndroid
         run: gradle assembleDebug
