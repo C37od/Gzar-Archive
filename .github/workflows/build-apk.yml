@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'CreativeArchiveAndroid_Starter.zip'
+      - 'GZAR_ARCHIVE_Midnight_Blue_Ready.zip'
       - '.github/workflows/build-apk.yml'
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Extract project
         run: |
-          unzip -o CreativeArchiveAndroid_Starter.zip -d unpacked
+          unzip -o GZAR_ARCHIVE_Midnight_Blue_Ready.zip -d unpacked
           test -f unpacked/CreativeArchiveAndroid/app/build.gradle.kts
 
       - name: Setup Java
