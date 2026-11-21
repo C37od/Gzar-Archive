@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'GZAR_STUDIO_Final_Source.zip'
+      - 'GZAR_STUDIO_Final_Source_Fixed.zip'
       - '.github/workflows/build-apk.yml'
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
 
       - name: Extract project
         run: |
-          unzip -o GZAR_STUDIO_Final_Source.zip -d unpacked
+          unzip -o GZAR_STUDIO_Final_Source_Fixed.zip -d unpacked
           test -f unpacked/CreativeArchiveAndroid/app/build.gradle.kts
 
       - name: Setup Java
